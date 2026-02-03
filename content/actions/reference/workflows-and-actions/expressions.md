@@ -312,7 +312,7 @@ Sets `MY_ENV_VAR` based on the branch: `production` for `main`, `staging` for `s
 
 ## Status check functions
 
-You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif) and [AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#runsstepsif).
+You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied to jobs and steps that don't have an `if` conditional, which causes them to only run when previous steps have completed successfully. For more information about `if` conditionals, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif) and [AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#runsstepsif).
 
 Outside `if` conditionals, you can use `job.status` to access the job status. For more information, see [AUTOTITLE](/actions/reference/contexts-reference#job-context).
 
@@ -367,7 +367,7 @@ steps:
 
 #### failure with conditions
 
-You can include extra conditions for a step to run after a failure, but you must still include `failure()` to override the default status check of `success()` that is automatically applied to `if` conditions that don't contain a status check function.
+You can include extra conditions for a step to run after a failure. When you use an `if` conditional, the step will run regardless of the failure status of previous steps, unless you explicitly use a status check function. To ensure a step only runs after a failure, you must include `failure()` in your condition.
 
 ##### Example of `failure` with conditions
 
