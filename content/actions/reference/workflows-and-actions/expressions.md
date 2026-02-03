@@ -312,7 +312,7 @@ Sets `MY_ENV_VAR` based on the branch: `production` for `main`, `staging` for `s
 
 ## Status check functions
 
-You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif) and [AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#runsstepsif).
+You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions or reference the [steps.*.outcome context](/actions/reference/workflows-and-actions/contexts#steps-context). For more information about `if` conditionals, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif) and [AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#runsstepsif).
 
 Outside `if` conditionals, you can use `job.status` to access the job status. For more information, see [AUTOTITLE](/actions/reference/contexts-reference#job-context).
 
